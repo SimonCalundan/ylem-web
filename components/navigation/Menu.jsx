@@ -87,7 +87,7 @@ const Menu = ({ scrollDistance, menuOpen }) => {
             variants={item}
             exit={item.exit}
           >
-            <Link className="mt-32 uppercase text-sm text-gray-400 " href={"/"}>
+            <Link className="mt-32 uppercase text-sm text-gray-400 hover:underline underline-offset-8" href={"/"}>
               Refund policy
             </Link>
           </motion.div>
