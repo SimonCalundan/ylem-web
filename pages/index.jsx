@@ -123,8 +123,7 @@ export default function Home() {
                             />
                             <div className="flex-grow"></div>
                             <Link
-                                target="_blank"
-                                href="https://buy.stripe.com/test_4gw17C4JKfzIfwAfYY"
+                                href="/products/ring"
                                 className="py-2 px-4 bg-black border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
                             >
                                 Shop now
