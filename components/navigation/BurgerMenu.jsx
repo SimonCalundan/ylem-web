@@ -5,7 +5,7 @@ const BurgerMenu = (props) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-1/3">
+    <div className="w-32 flex items-center">
       {/* Lines */}
       <button
         onClick={() => {
