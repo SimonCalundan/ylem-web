@@ -50,17 +50,17 @@ export default function Nav() {
                         damping: 90,
                         duration: 2,
                     }}
-                    className="w-full fixed  justify-end mr-14 z-50 bg-dark-blue h-20 items-center
+                    className="w-full fixed  justify-end mr-10 z-50 bg-dark-blue h-20 items-center
         flex md:hidden"
                 >
                     <Link href="/">
                         <Image
                             draggable={false}
                             src="/logo/LOGO_HEADER.png"
-                            width={300}
-                            height={300}
+                            width={200}
+                            height={200}
                             alt="Ylem logo"
-                            className=" transition-all duration-500 ease-in-out"
+                            className=" transition-all duration-500 ease-in-out height-10"
                         />
                     </Link>
                 </motion.div>
