@@ -62,7 +62,7 @@ export default function FixedNav() {
                     </Link>
                 </motion.div>
                 {/* Cart button  */}
-                <button className=" w-32 justify-center items-center mr-8 hidden md:flex " >
+                <button className=" w-32 justify-center items-center  hidden md:flex " >
                     <Badge badgeContent={4} color="secondary" variant="soft" size="sm">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
                             className="hover:scale-105 active:scale-95 transition-all w-18 h-8">
