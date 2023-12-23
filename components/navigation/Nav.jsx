@@ -50,7 +50,7 @@ export default function Nav() {
                         damping: 90,
                         duration: 2,
                     }}
-                    className="w-full fixed py-4  justify-end mr-10 z-50 bg-dark-blue h-20 items-center
+                    className="w-full fixed top-0 py-4  justify-end mr-10 z-50 bg-dark-blue h-20 items-center
         flex md:hidden"
                 >
                     <Link href="/">
@@ -75,7 +75,7 @@ export default function Nav() {
                         damping: 90,
                         duration: 2,
                     }}
-                    className="w-full fixed py-4  justify-center z-50 bg-dark-blue h-20 items-center
+                    className="w-full fixed top-0 py-4  justify-center z-50 bg-dark-blue h-20 items-center
         hidden md:flex"
                 >
                     <Link href="/">
@@ -94,7 +94,7 @@ export default function Nav() {
                     </Link>
                 </motion.div>
                 {/* Burger menu */}
-                <div className="flex fixed py-4 z-50 w-full h-20  items-center pl-10 justify-between px-4 ">
+                <div className="flex fixed top-0 py-4 z-50 w-full h-20  items-center pl-10 justify-between px-4 ">
                     <BurgerMenu
                         handleClick={() => setMenuOpen(!menuOpen)}
                         styling={scrollDistance > 30 ? "opacity-100" : "opacity-100"}
