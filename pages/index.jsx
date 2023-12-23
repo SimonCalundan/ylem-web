@@ -5,7 +5,7 @@ import BurgerMenu from "@/components/navigation/BurgerMenu";
 import { motion } from "framer-motion";
 import Menu from "@/components/navigation/Menu";
 import Link from "next/link";
-
+import Nav from "@/components/navigation/Nav";
 
 export default function Home() {
     // Handle logo scroll effect
@@ -45,43 +45,7 @@ export default function Home() {
                     href="/logo/LOGO_browser.jpg"
                 ></link>
             </Head>
-            <main className={`flex min-h-screen h-[4000px] ${imageSize === 400 && "py-4"} transition-all duration-300 flex-col items-center`}>
-                {/* Logo */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{
-                        delay: 0.6,
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 90,
-                        duration: 2,
-                    }}
-                    className="w-full fixed flex justify-center z-50 bg-dark-blue h-20 items-center"
-                >
-                    <Link href="/">
-                        <Image
-                            draggable={false}
-                            src="/logo/LOGO_HEADER.png"
-                            width={300}
-                            height={300}
-                            alt="Ylem logo"
-                            className=" transition-all duration-500 ease-in-out"
-                            style={{
-                                width: `${imageSize}px`,
-                                height: "auto",
-                            }}
-                        />
-                    </Link>
-                </motion.div>
-                {/* Burger menu */}
-                <div className="flex fixed z-50 w-full h-20  items-center pl-10">
-                    <BurgerMenu
-                        handleClick={() => setMenuOpen(!menuOpen)}
-                        styling={scrollDistance > 30 ? "opacity-100" : "opacity-100"}
-                    />
-                </div>
-                <Menu scrollDistance={scrollDistance} menuOpen={menuOpen} />
+            <Nav />
                 {/* Content */}
                 <motion.section
                     initial={{ opacity: 0, y: 10 }}
@@ -148,7 +112,6 @@ export default function Home() {
                         New products
                     </h2>
                 </motion.section>
-            </main>
         </>
     );
 }
