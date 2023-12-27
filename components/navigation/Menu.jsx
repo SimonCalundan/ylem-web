@@ -40,7 +40,7 @@ const menuItems = [
     { name: "Contact", link: "/contact" },
 ];
 
-const Menu = ({ scrollDistance, menuOpen }) => {
+const Menu = ({  menuOpen }) => {
     return (
         <AnimatePresence
             onExitComplete={() => {
@@ -53,7 +53,7 @@ const Menu = ({ scrollDistance, menuOpen }) => {
                     initial="hidden"
                     animate="visible"
                     exit={container.exit}
-                    className="bg-black top-0 left-0 fixed w-screen h-screen flex flex-col justify-center items-center gap-8 z-99"
+                    className="bg-black top-0 left-0 fixed w-screen h-screen flex flex-col justify-center items-center gap-8 z-50"
                 >
                     {menuItems.map((link, i) => (
                         <motion.p

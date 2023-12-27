@@ -1,39 +1,9 @@
 import Image from "next/image";
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import BurgerMenu from "@/components/navigation/BurgerMenu";
 import { motion } from "framer-motion";
-import Menu from "@/components/navigation/Menu";
 import Link from "next/link";
-import Nav from "@/components/navigation/Nav";
 import FixedNav from "@/components/navigation/FixedNav";
 export default function Home() {
-    // Handle logo scroll effect
-    const [scrollDistance, setScrollDistance] = useState(0);
-    const [imageSize, setImageSize] = useState(300);
-    const [menuOpen, setMenuOpen] = useState(false);
-    useEffect(() => {
-        const handleScroll = () => {
-            // Update the scroll distance when the user scrolls
-            setScrollDistance(window.scrollY);
-        };
-
-        // Attach the event listener when the component mounts
-        window.addEventListener("scroll", handleScroll);
-
-        // Detach the event listener when the component unmounts to avoid memory leaks
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-    useEffect(() => {
-        if (scrollDistance > 30) {
-            setImageSize(200);
-
-        } else {
-            setImageSize(400);
-        }
-    }, [scrollDistance]);
 
     return (
         <>
