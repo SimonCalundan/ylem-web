@@ -42,7 +42,7 @@ export default function Home() {
                         <div className="flex-grow"></div>
                         <Link
                             href="https://buy.stripe.com/test_4gw17C4JKfzIfwAfYY"
-                            className="py-2 px-4 bg-black border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
+                            className="py-2 px-4 bg-dark-blue border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
                         >
                             Shop now
                         </Link>
@@ -58,7 +58,7 @@ export default function Home() {
                         <div className="flex-grow"></div>
                         <Link
                             href="/products/ring"
-                            className="py-2 px-4 bg-black border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
+                            className="py-2 px-4 bg-dark-blue border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
                         >
                             Shop now
                         </Link>

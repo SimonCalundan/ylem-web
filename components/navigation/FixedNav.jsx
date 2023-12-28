@@ -41,7 +41,7 @@ export default function FixedNav() {
             {/* Menu  */}
             <Menu scrollDistance={scrollDistance} menuOpen={menuOpen} />
             {/* Nav  */}
-            <nav className="flex fixed top-0 left-0 w-screen z-50 justify-between py-8 px-8 bg-black">
+            <nav className="flex fixed top-0 left-0 w-screen z-50 justify-between py-8 px-8 bg-dark-blue">
                 {/* Burger menu button */}
                 <BurgerMenu
                     handleClick={() => setMenuOpen(!menuOpen)}

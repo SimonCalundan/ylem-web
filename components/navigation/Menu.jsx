@@ -52,7 +52,7 @@ const Menu = ({  menuOpen }) => {
                     initial="hidden"
                     animate="visible"
                     exit={container.exit}
-                    className="bg-black top-0 left-0 fixed w-screen h-screen flex flex-col justify-center items-center gap-8 z-50"
+                    className="bg-dark-blue top-0 left-0 fixed w-screen h-screen flex flex-col justify-center items-center gap-8 z-50"
                 >
                     {menuItems.map((link, i) => (
                         <motion.p
