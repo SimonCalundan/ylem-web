@@ -1,22 +1,21 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 
 const container = {
     hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: {
-            delayChildren: 0.2,
-            staggerChildren: 0.2,
+            delayChildren: 0.1,
+            staggerChildren: 0.1,
         },
     },
     exit: {
         opacity: 0,
         transition: {
-            delayChildren: 0.2,
-            staggerChildren: 0.2,
+            delayChildren: 0.1,
+            staggerChildren: 0.1,
         },
     },
 };

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import FixedNav from "@/components/navigation/FixedNav";
 export default function Home() {
+    // Dette er en kommentar
 
     return (
         <>
