@@ -1,89 +1,57 @@
 import Image from "next/image";
 import Head from "next/head";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import FixedNav from "@/components/navigation/FixedNav";
+import Nav from "@/components/navigation/Nav";
 export default function Home() {
-    // Dette er en kommentar
+  // Dette er en kommentar
 
-    return (
-        <>
-            <Head>
-                <title>YLEM</title>
-                <link
-                    rel="icon"
-                    type="image/x-icon"
-                    href="/logo/LOGO_browser.jpg"
-                ></link>
-            </Head>
-            <FixedNav />
-            {/* Content */}
-            <motion.section
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 1,
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 90,
-                    duration: 700,
-                }}
-                className="w-full h-auto flex flex-col items-center mt-40"
-            >
-                {/* Images */}
-                <div className="flex w-full justify-center flex-wrap gap-8 py-16">
-                    <div className="flex flex-col gap-4 items-center h-[23rem]">
-                        <Image
-                            src={"/dummy.webp"}
-                            width={300}
-                            height={300}
-                            alt="aas"
-                            className="hover:scale-105 transition-all duration-500"
-                        />
-                        <div className="flex-grow"></div>
-                        <Link
-                            href="https://buy.stripe.com/test_4gw17C4JKfzIfwAfYY"
-                            className="py-2 px-4 bg-dark-blue border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
-                        >
-                            Shop now
-                        </Link>
-                    </div>
-                    <div className="flex flex-col gap-4 items-center h-[23rem]">
-                        <Image
-                            src={"/dummy2.png"}
-                            width={300}
-                            height={300}
-                            alt="aas"
-                            className="hover:scale-105 transition-all duration-500"
-                        />
-                        <div className="flex-grow"></div>
-                        <Link
-                            href="/products/ring"
-                            className="py-2 px-4 bg-dark-blue border-2 border-white uppercase text-sm hover:bg-gray-200 hover:text-black transition-all duration-500 ease-in-out"
-                        >
-                            Shop now
-                        </Link>
-                    </div>
-                </div>
-            </motion.section>
-            {/* Latets products */}
-            <motion.section
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 1,
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 90,
-                    duration: 700,
-                }}
-                className="w-full h-auto flex flex-col items-center"
-            >
-                <h2 className="text-3xl font-medium uppercase text-center mb-16 mt-8">
-                    New products
-                </h2>
-            </motion.section>
-        </>
-    );
+  return (
+    <>
+    <Head>
+    <title>YLEM</title>
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="/logo/LOGO_browser.jpg"
+    ></link>
+    </Head>
+    <Nav />
+    {/* Content */}
+    <motion.section
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{
+      delay: 1,
+        type: "spring",
+        stiffness: 260,
+        damping: 90,
+        duration: 700,
+    }}
+    className="w-full min-h-screen flex flex-col items-center mt-40 bg-dark-blue"
+    >
+    <Image
+    src="/model_billeder/oliver.jpg"
+    width={800}
+    height={800}
+    alt="Oliver"
+    />
+    {/* CTA  */}
+    <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{
+      delay: 2,
+        type: "spring",
+        stiffness: 260,
+        damping: 90,
+        duration: 700,
+    }}
+    className="flex flex-col gap-4 text-white fixed bottom-20 ">
+    <h1 className="text-5xl font-thin  p-4">Entangle out now</h1>
+    <button className="bg-white text-black px-4 py-2 uppercase ">Shop now</button>
+    </motion.div>
+    </motion.section>
+    </>
+  );
 }
 
