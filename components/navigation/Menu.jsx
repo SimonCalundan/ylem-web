@@ -93,7 +93,7 @@ const Menu = ({ menuOpen }) => {
         className="flex items-center gap-4 w-92 flex-wrap justify-center fixed bottom-20"
           >
             {secondaryMenuItems.map((link, i) => (
-              <Link className=" uppercase text-sm text-gray-400 hover:underline underline-offset-8" href={link.link}>
+              <Link key={i} className=" uppercase text-sm text-gray-400 hover:underline underline-offset-8" href={link.link}>
               {link.name}
               </Link>)
             )}
