@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
 /* Farven før var (#020202) */
 :root {
   /* --background: blue; */
@@ -47,7 +50,8 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fefefe;
+  background: black;
+  opacity: 0.5
 }
 
 /* Handle on hover */

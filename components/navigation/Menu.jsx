@@ -31,7 +31,7 @@ const item = {
 
 const menuItems = [
   { name: "Home", link: "/" },
-  { name: "Entangle ring", link: "/ring" },
+  { name: "Entangle ring", link: "/products/entangle" },
   { name: "YLEM Universe", link: "/universe" },
   { name: "Cart", link: "/cart" },
 ];
