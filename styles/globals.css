@@ -63,5 +63,5 @@ body {
 
 /* Fjerner den default hover farve på Joy accordion  */
 .css-1twr7re-JoyAccordionSummary-button:not(.Mui-selected, [aria-selected="true"]):hover {
-  background-color: transparent;
+  background-color: transparent !important;
 }
