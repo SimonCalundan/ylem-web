@@ -52,7 +52,7 @@ export default function Nav() {
           <Link href="/">
             <Image
               draggable={false}
-              src="/logo/LOGO_HEADER.png" 
+              src="/logo/logo_white.png" 
               width={300}
               height={300} 
               alt="Ylem logo"
