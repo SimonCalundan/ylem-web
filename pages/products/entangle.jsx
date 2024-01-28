@@ -11,7 +11,7 @@ import Accordion from '@mui/joy/Accordion';
 import AccordionDetails from '@mui/joy/AccordionDetails';
 import AccordionGroup from '@mui/joy/AccordionGroup';
 import AccordionSummary from '@mui/joy/AccordionSummary';
-
+import Footer from "@/components/Footer";
 
 const sizes = [
   {
@@ -28,44 +28,66 @@ const sizes = [
   },
   {
     size: 9,
-    soldOut: true
+    soldOut: false
   },
 ];
 
 function AccordionComp() {
+  const [index, setIndex] = useState(0);
+
   return (
-    <AccordionGroup size="lg" sx={{ width: "100%" }}>
-      <Accordion className="hover:bg-dark-blue">
-        <AccordionSummary className=""><p className="text-white">MATERIALS AND CARE</p></AccordionSummary>
+    <AccordionGroup color="neutral" size="lg" sx={{ width: "100%" }}>
+      <Accordion
+        expanded={index === 0}
+        onChange={(event, expanded) => {
+          setIndex(expanded ? 0 : null);
+        }}
+        className="pb-4">
+        <AccordionSummary className="text-2xl"
+        ><p className="text-white">MATERIALS</p></AccordionSummary>
         <AccordionDetails>
-          <p className="text-white">
+          <p className="text-white font-light">
+            All of our jewelry is made of 925 sterling silver, some with rhodium electroplating for more durability and shine. The quality is top priority for us, and we plan to introduce jewels and gems in the near future as well.
+          </p>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={index === 1}
+        onChange={(event, expanded) => {
+          setIndex(expanded ? 1 : null);
+        }}
+        className="py-4">
+        <AccordionSummary className="text-2xl"><p className="text-white">SHIPPING AND RETURNS INFO</p></AccordionSummary>
+        <AccordionDetails>
+          <p className="text-white font-light">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="hover:bg-dark-blue">
-        <AccordionSummary className=""><p className="text-white">SHIPPING AND RETURNS INFO</p></AccordionSummary>
+      <Accordion
+        expanded={index === 2}
+        onChange={(event, expanded) => {
+          setIndex(expanded ? 2 : null);
+        }}
+        className="py-4">
+        <AccordionSummary className="text-2xl"><p className="text-white">PAYMENT OPTIONS</p></AccordionSummary>
         <AccordionDetails>
-          <p className="text-white">
+          <p className="text-white font-light">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="hover:bg-dark-blue">
-        <AccordionSummary className=""><p className="text-white">PAYMENT OPTIONS</p></AccordionSummary>
+      <Accordion
+        expanded={index === 3}
+        onChange={(event, expanded) => {
+          setIndex(expanded ? 3 : null);
+        }}
+        className="py-4">
+        <AccordionSummary className="text-2xl"><p className="text-white">YLEM PACKAGING</p></AccordionSummary>
         <AccordionDetails>
-          <p className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion className="hover:bg-dark-blue">
-        <AccordionSummary className=""><p className="text-white">YLEM PACKAGING</p></AccordionSummary>
-        <AccordionDetails>
-          <p className="text-white">
+          <p className="text-white font-light">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.
           </p>
@@ -109,6 +131,9 @@ const RingContent = () => {
     sliderRef.current.slickPrev();
   }, [sliderRef]);
 
+
+  // Handle size select 
+  const [selectedSize, setSelectedSize] = useState(0);
   return (
     <>
       <Head>
@@ -153,13 +178,13 @@ const RingContent = () => {
               alt=" ring" />
           </Slider>
         </div>
-        <div className="flex flex-col-reverse gap-12 md:gap-0 md:flex-row w-full max-w-[1280px] mx-auto h-screen pt-4 md:pt-20 px-8" id="product_info">
+        <div className="flex flex-col-reverse gap-12 md:gap-0 md:flex-row w-full max-w-[1280px] mx-auto h-auto pb-12 pt-8 md:pt-20 px-8" id="product_info">
           { /* Accordion */}
           <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 md:px-8">
             <AccordionComp />
           </div>
           { /* Info, select and purchase */}
-          <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 md:px-8">
+          <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 mb-8 md:mb-0 md:px-8">
             {/* Name, description and price */}
             <div className="flex justify-between items-end ">
               <p className="text-2xl uppercase font-medium">Entangle ring</p>
@@ -167,14 +192,14 @@ const RingContent = () => {
             </div>
             <div className="flex mb-10"><p className="text-gray-300 font-light">Sterling silver | ekstra info her</p></div>
             { /* Select size */}
-            <div className="flex justify-between w-full mb-1">
+            <div className="flex justify-between w-full mb-4 md:mb-1">
               <p className="font-medium">Select size</p>
               <button className=" underline underline-offset-4">Size guide</button>
             </div>
             { /* Size buttons */}
             <div className="flex w-full">
               {sizes.map((size, i) => (
-                <button disabled={size.soldOut} className="disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white" key={i}>{size.size}</button>
+                <button onClick={() => setSelectedSize(size.size)} disabled={size.soldOut} className={`${selectedSize === size.size ? "bg-white text-dark-blue" : ""} disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white`} key={i}>{size.size}</button>
               ))}
             </div>
             { /* Purchase button */}
@@ -182,6 +207,7 @@ const RingContent = () => {
           </div>
         </div>
       </motion.div>
+      <Footer />
     </>
   );
 };

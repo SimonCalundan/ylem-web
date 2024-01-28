@@ -3,8 +3,8 @@ import Link from "next/link";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Nav from "@/components/navigation/Nav";
+import Footer from "@/components/Footer";
 export default function Home() {
-  // Dette er en kommentar
 
   return (
     <>
@@ -48,6 +48,7 @@ export default function Home() {
           />
         </div>
         {/* CTA  */}
+        {/*}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +63,9 @@ export default function Home() {
           <h1 className="text-5xl font-thin  p-4">Entangle out now</h1>
           <button className="bg-white text-black px-4 py-2 uppercase ">Shop now</button>
         </motion.div>
+    */}
       </motion.section>
+      <Footer />
     </>
   );
 }

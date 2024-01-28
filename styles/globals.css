@@ -60,3 +60,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* Fjerner den default hover farve på Joy accordion  */
+.css-1twr7re-JoyAccordionSummary-button:not(.Mui-selected, [aria-selected="true"]):hover {
+  background-color: transparent;
+}
