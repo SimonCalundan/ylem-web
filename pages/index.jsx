@@ -20,8 +20,8 @@ export default function Home() {
       {/* banner */}
       {/* Content */}
       <motion.section
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, }}
+        animate={{ opacity: 1, }}
         transition={{
           delay: 1,
           type: "spring",
@@ -31,21 +31,22 @@ export default function Home() {
         }}
         className="w-full min-h-screen flex flex-col items-center mt-40 bg-dark-blue"
       >
-        <motion.div
-    initial={{y: -20, opacity: 0}}
-    animate={{y: 0, opacity: 1}} 
-    transition={{ 
-      delay: 1.5,
-      type: "spring",
-      duration: 1,
-    }}
-    className="flex justify-center h-8 w-full bg-white items-center  uppercase shadow-xl"><p>Entagle now available. <Link href="/" className="font-medium underline underline-offset-4">Shop here</Link></p>  {" "} .</motion.div>
-        <Image
-          src="/model_billeder/front_1.jpg"
-          width={800}
-          height={800}
-          alt="Oliver"
-        />
+        <div className="flex items-center justify-center w-[768px] h-[1152px] overflow-hidden ">
+          <motion.img
+            initial={{ scale: 1.2 }}
+            animate={{ scale: 1 }}
+            transition={{
+              ease: "easeOut",
+              delay: 3,
+              duration: 0.5,
+            }}
+            src="/model_billeder/front_1.jpg"
+            width={600}
+            height={600}
+            alt="Oliver"
+            className="w-full h-full"
+          />
+        </div>
         {/* CTA  */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

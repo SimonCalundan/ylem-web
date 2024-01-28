@@ -7,8 +7,10 @@
 
 /* Farven før var (#020202) */
 :root {
-  /* --background: blue; */
-  --background: #020202;
+  --background: #18181b;
+  /* --background: #020202; */
+
+  scroll-behavior: smooth;
 }
 body {
   background-color: var(--background)
