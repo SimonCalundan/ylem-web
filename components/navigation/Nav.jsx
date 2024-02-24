@@ -6,9 +6,12 @@ import { motion } from "framer-motion";
 import Menu from "@/components/navigation/Menu";
 import Link from "next/link";
 import Badge from '@mui/joy/Badge';
+import { useRouter } from "next/router";
 
 
 export default function Nav() {
+  const router = useRouter();
+  const isHomePage = router.asPath === "/";
   // Handle logo scroll effect
   const [scrollDistance, setScrollDistance] = useState(0);
   const [imageSize, setImageSize] = useState(300);
@@ -28,7 +31,7 @@ export default function Nav() {
     };
   }, []);
   useEffect(() => {
-    if (scrollDistance > 30) {
+    if (scrollDistance > 30 || !isHomePage) {
       setImageSize(200);
 
     } else {

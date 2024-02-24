@@ -7,10 +7,7 @@ import Nav from "@/components/navigation/Nav";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Accordion from '@mui/joy/Accordion';
-import AccordionDetails from '@mui/joy/AccordionDetails';
-import AccordionGroup from '@mui/joy/AccordionGroup';
-import AccordionSummary from '@mui/joy/AccordionSummary';
+import Accordion from "@/components/products/Accordion";
 import Footer from "@/components/Footer";
 
 const sizes = [
@@ -32,70 +29,6 @@ const sizes = [
   },
 ];
 
-function AccordionComp() {
-  const [index, setIndex] = useState(0);
-
-  return (
-    <AccordionGroup color="neutral" size="lg" sx={{ width: "100%" }}>
-      <Accordion
-        expanded={index === 0}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 0 : null);
-        }}
-        className="pb-4">
-        <AccordionSummary className="text-2xl"
-        ><p className="text-white">MATERIALS</p></AccordionSummary>
-        <AccordionDetails>
-          <p className="text-white font-light">
-            All of our jewelry is made of 925 sterling silver, some with rhodium electroplating for more durability and shine. The quality is top priority for us, and we plan to introduce jewels and gems in the near future as well.
-          </p>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={index === 1}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 1 : null);
-        }}
-        className="py-4">
-        <AccordionSummary className="text-2xl"><p className="text-white">SHIPPING AND RETURNS INFO</p></AccordionSummary>
-        <AccordionDetails>
-          <p className="text-white font-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={index === 2}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 2 : null);
-        }}
-        className="py-4">
-        <AccordionSummary className="text-2xl"><p className="text-white">PAYMENT OPTIONS</p></AccordionSummary>
-        <AccordionDetails>
-          <p className="text-white font-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={index === 3}
-        onChange={(event, expanded) => {
-          setIndex(expanded ? 3 : null);
-        }}
-        className="py-4">
-        <AccordionSummary className="text-2xl"><p className="text-white">YLEM PACKAGING</p></AccordionSummary>
-        <AccordionDetails>
-          <p className="text-white font-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </AccordionDetails>
-      </Accordion>
-    </AccordionGroup>
-  );
-}
 const RingContent = () => {
   const [windowWidth, setWindowWidth] = useState(2000);
   useEffect(() => {
@@ -150,11 +83,8 @@ const RingContent = () => {
         className="w-screen h-auto  flex flex-col  text-white">
         {/*Images and CTA */}
         <div className="flex relative w-screen min-h-[50vh]  justify-center items-center  ">
-          <svg onClick={next} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-20 h-48 hover:scale-105 active:scale-95 transition-all cursor-pointer  top-1/2 right-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 4l3 8l-3 8" /></svg>
-          <svg onClick={previous} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-20 h-48 hover:scale-105 active:scale-95 transition-all cursor-pointer top-1/2 left-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 20l-3 -8l3 -8" /></svg>
-          <Link href="#product_info" className="flex flex-col p-1 justify-center items-center absolute left-1/2 -translate-x-1/2 top-1/2  bg-dark-blue opacity-30 hover:opacity-100 h-12 w-60 z-50 transition-all duration-300 cursor-pointer ">
-            <p className="text-white uppercase">Go to product info</p>
-          </Link>
+          <svg onClick={next} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer  top-2/5 right-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 4l3 8l-3 8" /></svg>
+          <svg onClick={previous} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer top-2/5 left-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 20l-3 -8l3 -8" /></svg>
           <Slider ref={sliderRef} dotsClass="bg-blue-500" {...settings} className=" h-full w-screen mt-32 overflow-hidden  text-white ">
             <Image priority={true} src="/produkt_billeder/ring_3.jpg"
               width={500}
@@ -181,7 +111,7 @@ const RingContent = () => {
         <div className="flex flex-col-reverse gap-12 md:gap-0 md:flex-row w-full max-w-[1280px] mx-auto h-auto pb-12 pt-8 md:pt-20 px-8" id="product_info">
           { /* Accordion */}
           <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 md:px-8">
-            <AccordionComp />
+            <Accordion />
           </div>
           { /* Info, select and purchase */}
           <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 mb-8 md:mb-0 md:px-8">
@@ -190,7 +120,7 @@ const RingContent = () => {
               <p className="text-2xl uppercase font-medium">Entangle ring</p>
               <p className="text-xl uppercase font-light">899 DKK</p>
             </div>
-            <div className="flex mb-10"><p className="text-gray-300 font-light">Sterling silver | ekstra info her</p></div>
+            <div className="flex mb-10"><p className="text-gray-300 font-light">Recycled 925 sterling silver | Rhodium plating</p></div>
             { /* Select size */}
             <div className="flex justify-between w-full mb-4 md:mb-1">
               <p className="font-medium">Select size</p>

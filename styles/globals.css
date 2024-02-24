@@ -12,8 +12,14 @@
 
   scroll-behavior: smooth;
 }
+
+html { 
+  overflow-x: hidden;
+}
 body {
-  background-color: var(--background)
+  background-color: var(--background);
+  overflow-x: hidden;
+  
 }
 .link {
   position: relative;

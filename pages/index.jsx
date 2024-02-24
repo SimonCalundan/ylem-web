@@ -1,11 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Nav from "@/components/navigation/Nav";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/router";
 export default function Home() {
-
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -31,13 +30,18 @@ export default function Home() {
         }}
         className="w-full min-h-screen flex flex-col items-center mt-40 bg-dark-blue"
       >
-        <div className="flex items-center justify-center w-[768px] h-[1152px] overflow-hidden ">
+        <div className="flex items-center justify-center w-[768px] max-w-full h-auto overflow-hidden group  relative">
+          <div
+            className="absolute w-full h-full top-0 left-0 bg-dark-blue bg-opacity-20 md:bg-opacity-50 z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 
+                        transition-all duration-300 flex justify-center items-center">
+            <button onClick={() => router.push("/products/entangle")} className="bg-white py-4 px-16 uppercase text-dark-blue hover:scale-[1.02] transition-all duration-300">Shop entangle ring</button>
+          </div>
           <motion.img
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{
               ease: "easeOut",
-              delay: 3,
+              delay: 2,
               duration: 0.5,
             }}
             src="/model_billeder/front_1.jpg"
@@ -47,23 +51,6 @@ export default function Home() {
             className="w-full h-full"
           />
         </div>
-        {/* CTA  */}
-        {/*}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 2,
-            type: "spring",
-            stiffness: 260,
-            damping: 90,
-            duration: 700,
-          }}
-          className="flex flex-col gap-4 text-white fixed bottom-20 ">
-          <h1 className="text-5xl font-thin  p-4">Entangle out now</h1>
-          <button className="bg-white text-black px-4 py-2 uppercase ">Shop now</button>
-        </motion.div>
-    */}
       </motion.section>
       <Footer />
     </>
