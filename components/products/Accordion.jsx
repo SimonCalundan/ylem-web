@@ -23,7 +23,7 @@ export default function Accordion() {
   return (
     <div className="flex w-full flex-col gap-2">
       {testArr.map((item, index) => (
-        <div onClick={() => setActive(index)} className=" cursor-pointer py-2 px-4 flex justify-between w-full border-b-white border-opacity-20 border-b min-h-10">
+        <div key={index} onClick={() => setActive(index)} className=" cursor-pointer py-2 px-4 flex justify-between w-full border-b-white border-opacity-20 border-b min-h-10">
           {/* Content */}
           <div className="flex flex-col gap-2 pb-2">
             <p className="text-2xl uppercase font-medium">{item.title}</p>
