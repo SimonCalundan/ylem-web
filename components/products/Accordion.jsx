@@ -1,29 +1,31 @@
 import { useState } from "react"
 import { motion } from "framer-motion";
 export default function Accordion() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(null);
   const testArr = [
     {
-      title: "Materials",
-      content: "The Entangle ring is made of 925 sterling silver and plated with rhodium."
+      title: "Wear and care",
+      content: "The ring is made in such a way that you can safely and carefully bend it to fit your finger perfectly. Please wear your jewelry with care and take it off in any situation where the spikes could easily get entangled in fabric or the like. To care for your ring, clean it with a bit of soapy water or polish it with a silver polishing cloth regularly. Avoid exposing it to harsh chemicals, moisture, or direct sunlight to maintain its shine. We recommend storing them in our jewelry boxes, that follow with purchase."
     },
     {
-      title: "Shipping and returns info",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title: "Order cancellation",
+      content: "Yes. If your order is yet to be shipped, you can cancel the order and we will refund the whole amount. If your order has already been shipped, you cannot cancel it, and will have to process a return instead."
     },
     {
-      title: "Payment options",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      title: "Ylem packaging",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title: "Return policy",
+      content: "You may return your jewelry within 14 days of the date of delivery, provided the jewelry piece is in its original packaging, in new and unused condition, with all materials intact. If you desire to initiate a return, kindly note that the associated shipping costs will be your responsibility. To expedite this process, please complete the provided form, through the following link: Given the product has met the above conditions, you will receive a full refund. If the conditions are not met, we reserve the right to make a partial refund of the amount of the product."
     }
   ]
   return (
     <div className="flex w-full flex-col gap-2">
       {testArr.map((item, index) => (
-        <div key={index} onClick={() => setActive(index)} className=" cursor-pointer py-2 px-4 flex justify-between w-full border-b-white border-opacity-20 border-b min-h-10">
+        <div key={index} onClick={() => {
+          if (active === index) {
+            setActive(null);
+          } else {
+            setActive(index);
+          }
+        }} className=" cursor-pointer py-2 px-4 flex justify-between w-full border-b-white border-opacity-20 border-b min-h-10">
           {/* Content */}
           <div className="flex flex-col gap-2 pb-2">
             <p className="text-2xl uppercase font-medium">{item.title}</p>
