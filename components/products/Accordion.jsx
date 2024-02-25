@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 export default function Accordion() {
   const [active, setActive] = useState(null);
   const testArr = [
@@ -28,15 +28,17 @@ export default function Accordion() {
         }} className=" cursor-pointer py-2 px-4 flex justify-between w-full border-b-white border-opacity-20 border-b min-h-10">
           {/* Content */}
           <div className="flex flex-col gap-2 pb-2">
-            <p className="text-2xl uppercase font-medium">{item.title}</p>
-            {active === index && (
-              <motion.p
-                className="max-w-[90%]"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 100, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >{item.content}</motion.p>
-            )}
+            <p className="text-2xl uppercase font-medium tracking-wider">{item.title}</p>
+            <AnimatePresence>
+              {active === index && (
+                <motion.p
+                  className="font-thin max-w-[90%] text-body"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 100, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >{item.content}</motion.p>
+              )}
+            </AnimatePresence>
           </div>
           <button>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={`duration-500 ${active === index ? "rotate-180" : ""} transition-all duration-300 w-6 h-6 text-white text-opacity-50`}>

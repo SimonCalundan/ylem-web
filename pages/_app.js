@@ -1,21 +1,18 @@
 import "@/styles/globals.css";
 import { create } from 'zustand'
-import { Playfair_Display, Crimson_Text, Alegreya, Bitter, Gowun_Batang, Sawarabi_Mincho, Piazzolla, Raleway, Taviraj } from "next/font/google";
-const bitter = Bitter({subsets: ['latin']});
+import { Bitter, EB_Garamond, Source_Serif_4, Alegreya, Cormorant } from "next/font/google";
+const bitter = Bitter({ subsets: ['latin'] });
+const ebGaramond = EB_Garamond({ subsets: ['latin'] });
+const sourceSerif4 = Source_Serif_4({ subsets: ['latin'] });
+const alegreya = Alegreya({ subsets: ['latin'] });
+const cormorant = Cormorant({ subsets: ['latin'] });
 
 
 
 
 export default function App({ Component, pageProps }) {
-  const exampleObject = {
-    product_name: "ring",
-    product_img: "/dummy2.png",
-    product_price: 100,
-    stripe_price: "price_1Jf2XjDjKQj9tBj9YK8M2YV1",
-    quantity: 1,
-  }
   return (
-    <main className={bitter.className}>
+    <main className={cormorant.className}>
       <Component {...pageProps} />
     </main>
   );

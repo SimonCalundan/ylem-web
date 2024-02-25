@@ -56,8 +56,8 @@ export default function Nav() {
             <Image
               draggable={false}
               src="/logo/logo_white.png" 
-              width={750}
-              height={750} 
+              width={900}
+              height={900} 
               priority
               alt="Ylem logo"
               className="transition-all duration-500 ease-in-out bg-transparent"

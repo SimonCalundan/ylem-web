@@ -117,23 +117,23 @@ const RingContent = () => {
           <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 mb-8 md:mb-0 md:px-8">
             {/* Name, description and price */}
             <div className="flex justify-between items-end ">
-              <p className="text-2xl uppercase font-medium">Entangle ring</p>
-              <p className="text-xl uppercase font-light">899 DKK</p>
+              <p className="tracking-wider text-2xl uppercase font-medium">Entangle ring</p>
+              <p className="text-xl uppercase text-body font-light">899 DKK</p>
             </div>
-            <div className="flex mb-10"><p className="text-gray-300 font-light">Recycled 925 sterling silver | Rhodium plating</p></div>
+            <div className="flex mb-10"><p className="text-gray-300 font-light text-body">Recycled 925 sterling silver | Rhodium plating</p></div>
             { /* Select size */}
             <div className="flex justify-between w-full mb-4 md:mb-1">
-              <p className="font-medium">Select size</p>
-              <button className=" underline underline-offset-4">Size guide</button>
+              <p className="font-medium text-body">Select size</p>
+              <button className=" underline underline-offset-4 text-body">Size guide</button>
             </div>
             { /* Size buttons */}
             <div className="flex w-full">
               {sizes.map((size, i) => (
-                <button onClick={() => setSelectedSize(size.size)} disabled={size.soldOut} className={`${selectedSize === size.size ? "bg-white text-dark-blue" : ""} disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white`} key={i}>{size.size}</button>
+                <button onClick={() => setSelectedSize(size.size)} disabled={size.soldOut} className={`text-body ${selectedSize === size.size ? "bg-white text-dark-blue" : ""} disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white`} key={i}>{size.size}</button>
               ))}
             </div>
             { /* Purchase button */}
-            <button className="w-full h-12 mt-8 flex justify-center items-center bg-white text-dark-blue hover:text-white hover:bg-dark-blue transition-all border border-white">Add to cart</button>
+            <button className="w-full h-12 mt-8 flex justify-center items-center bg-white text-dark-blue hover:text-white hover:bg-dark-blue transition-all border border-white text-body">Add to cart</button>
           </div>
         </div>
       </motion.div>
