@@ -85,7 +85,8 @@ const RingContent = () => {
         <div className="flex relative w-screen min-h-[50vh]  justify-center items-center  ">
           <svg onClick={next} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer  top-2/5 right-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 4l3 8l-3 8" /></svg>
           <svg onClick={previous} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer top-2/5 left-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 20l-3 -8l3 -8" /></svg>
-          <Slider ref={sliderRef} dotsClass="bg-blue-500" {...settings} className=" h-full w-screen mt-32 overflow-hidden  text-white ">
+          <Slider
+            ref={sliderRef} dotsClass="bg-blue-500" {...settings} className=" h-full w-screen mt-24 overflow-hidden  text-white ">
             <Image priority={true} src="/produkt_billeder/ring_3.jpg"
               width={500}
               height={500}
