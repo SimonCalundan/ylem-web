@@ -91,7 +91,7 @@ export default function Privacy() {
           </p>
           <h2 className="text-4xl font-medium my-4">Links to Other Websites</h2>
           <p className="text-body text-base font-light tracking-wider text-gray-300 ml-4">
-            Our website contains links to other websites or integrated pages. We are not responsible for the content of other company websites or their methods of collecting personal data. When visiting other companies, please read the owner's policy on the protection of personal data and other relevant policies.
+            Our website contains links to other websites or integrated pages. We are not responsible for the content of other company websites or their methods of collecting personal data. When visiting other companies, please read the owner&apos;s policy on the protection of personal data and other relevant policies.
           </p>
           <h2 className="text-4xl font-medium my-4">Change of Data</h2>
           <p className="text-body text-base font-light tracking-wider text-gray-300 ml-4">
