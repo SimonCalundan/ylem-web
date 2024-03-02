@@ -18,12 +18,16 @@ export default function Privacy() {
       <Nav />
       <motion.div className=" text-white w-screen h-auto flex flex-col pt-24">
         {/* Image  */}
-        <div className="w-full h-96 relative">
+        <div className="w-screen h-96 max-h-[40vh] relative">
+          <div className="w-screen h-full absolute top-0 left-0 flex flex-col items-center justify-center">
+            <p className=" text-5xl font-thin z-10">Privacy policy</p>
+          </div>
           <Image
             src="/page_covers/privacy.jpg"
             layout="fill"
             objectFit="cover"
             alt="Privacy policy"
+            className="opacity-50"
           />
         </div>
         {/* Content  */}
@@ -107,6 +111,7 @@ export default function Privacy() {
           </div>
         </motion.div>
       </motion.div>
+      <Footer />
     </>
   )
 }

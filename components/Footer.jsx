@@ -8,9 +8,9 @@ export default function Footer() {
         <div className=" text-body text-gray-400 uppercase flex flex-col gap-2">
           <Link className="hover:underline" href="mailto:contact@ylemjewelry.com">contact@ylemjewelry.com</Link>
           <p>Denmark</p>
-          <Link className="hover:underline" href="phoneto:12 34 56 78">FAQ</Link>
-          <Link className="hover:underline" href="phoneto:12 34 56 78">Privacy policy</Link>
-          <Link className="hover:underline" href="phoneto:12 34 56 78">Terms and conditions</Link>
+          <Link className="hover:underline" href="/faq">FAQ</Link>
+          <Link className="hover:underline" href="/privacy">Privacy policy</Link>
+          <Link className="hover:underline" href="/terms">Terms and conditions</Link>
         </div>
       </div>
       <div className="hidden md:flex flex-col gap-2 w-full md:w-1/3 h-full self-center items-center">

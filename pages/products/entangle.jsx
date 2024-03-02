@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Nav from "@/components/navigation/Nav";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -67,6 +67,7 @@ const RingContent = () => {
 
   // Handle size select 
   const [selectedSize, setSelectedSize] = useState(0);
+  const [showSizeGuide, setShowSizeGuide] = useState(false);
   return (
     <>
       <Head>
@@ -78,6 +79,29 @@ const RingContent = () => {
         ></link>
       </Head>
       <Nav />
+      <AnimatePresence>
+        {showSizeGuide && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed top-4 left-0 w-screen h-screen bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            onClick={() => setShowSizeGuide(false)}
+          >
+            <div className="relative bg-white h-3/4 w-full md:w-2/5 md:h-4/5 flex flex-col justify-center items-center p-8 gap-8">
+              <button onClick={() => setShowSizeGuide(false)} className="absolute top-8 right-8">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 hover:scale-105 transition-all">
+                  <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                </svg>
+              </button>
+              <p className="text-3xl font-medium">Size guide</p>
+              <div className="w-full h-4/5 flex justify-center items-center" >
+                <Image src="/sizes.png" width={500} height={500} className="h-full w-auto" objectFit="contain" alt="Size guide" />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/*Content her */}
       <motion.div
         className="w-screen h-auto  flex flex-col  text-white">
@@ -109,7 +133,7 @@ const RingContent = () => {
               alt=" ring" />
           </Slider>
         </div>
-        <div className="flex flex-col-reverse gap-12 md:gap-0 md:flex-row w-full max-w-[1280px] mx-auto h-auto pb-12 pt-8 md:pt-20 px-8" id="product_info">
+        <div className="flex flex-col-reverse gap-12 md:gap-0 md:flex-row w-full max-w-[1480px] mx-auto h-auto pb-12 pt-8 md:pt-20 px-8" id="product_info">
           { /* Accordion */}
           <div className="flex flex-col gap-2 w-full md:w-1/2 px-2 md:px-8">
             <Accordion />
@@ -119,13 +143,13 @@ const RingContent = () => {
             {/* Name, description and price */}
             <div className="flex justify-between items-end ">
               <p className="tracking-wider text-2xl uppercase font-medium">Entangle ring</p>
-              <p className="text-xl uppercase text-body font-light">899 DKK</p>
+              <p className="text-xl uppercase text-body font-light">590 DKK</p>
             </div>
             <div className="flex mb-10"><p className="text-gray-300 font-light text-body">Recycled 925 sterling silver | Rhodium plating</p></div>
             { /* Select size */}
             <div className="flex justify-between w-full mb-4 md:mb-1">
               <p className="font-medium text-body">Select size</p>
-              <button className=" underline underline-offset-4 text-body">Size guide</button>
+              <button onClick={() => setShowSizeGuide(!showSizeGuide)} className=" underline underline-offset-4 text-body">Size guide</button>
             </div>
             { /* Size buttons */}
             <div className="flex w-full">

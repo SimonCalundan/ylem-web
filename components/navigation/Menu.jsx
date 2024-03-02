@@ -39,7 +39,7 @@ const menuItems = [
 const secondaryMenuItems = [
   { name: "FAQ", link: "/faq" },
   { name: "Contact us", link: "/contact" },
-  { name: "Terms and conditions", link: "/toc" },
+  { name: "Terms and conditions", link: "/terms" },
   { name: "Privacy policy", link: "/privacy" },
 ];
 
