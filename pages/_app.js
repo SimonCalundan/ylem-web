@@ -1,11 +1,8 @@
 import "@/styles/globals.css";
 import { create } from 'zustand'
 import { Bitter, EB_Garamond, Source_Serif_4, Alegreya, Cormorant } from "next/font/google";
-const bitter = Bitter({ subsets: ['latin'] });
-const ebGaramond = EB_Garamond({ subsets: ['latin'] });
-const sourceSerif4 = Source_Serif_4({ subsets: ['latin'] });
-const alegreya = Alegreya({ subsets: ['latin'] });
 const cormorant = Cormorant({ subsets: ['latin'] });
+import Cart from "@/components/Cart";
 
 
 
@@ -13,6 +10,7 @@ const cormorant = Cormorant({ subsets: ['latin'] });
 export default function App({ Component, pageProps }) {
   return (
     <main className={cormorant.className}>
+      <Cart />
       <Component {...pageProps} />
     </main>
   );
@@ -20,6 +18,12 @@ export default function App({ Component, pageProps }) {
 
 export const useCartInfo = create((set) => ({
   cart: [],
+  exampleCartItem: {
+    name: "Example Item",
+    price: 1000,
+    stripe_price: "price_1J2h3I2eZvKYlo2Cv5O6Tc0A",
+    image: "/images/example-item.jpg",
+  },
 
   // Add item to cart
   addItem: (itemToAdd) => set((state) => {
@@ -60,7 +64,11 @@ export const useCartInfo = create((set) => ({
   }),
 
   // Clear cart
-  clearCart: () => set({ cart: [] })
+  clearCart: () => set({ cart: [] }),
+
+  // Show cart
+  showCart: false,
+  toggleCart: () => set((state) => ({ showCart: !state.showCart })),
 }));
 
 

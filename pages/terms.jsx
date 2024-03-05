@@ -20,19 +20,13 @@ export default function Terms() {
         {/* Image  */}
         <div className="w-screen h-96 max-h-[40vh] relative">
           <div className="w-screen h-full absolute top-0 left-0 flex flex-col items-center justify-center">
-            <p className=" text-5xl font-thin z-10">Terms and conditions</p>
+            <p className=" text-5xl font-thin z-10 uppercase">Terms and conditions</p>
           </div>
-          <Image
-            src="/terms.jpg"
-            layout="fill"
-            objectFit="cover"
-            alt="Privacy policy"
-            className="opacity-50"
-          />
+          <div className="w-screen h-96 term-bg opacity-50" />
         </div>
         {/* Content  */}
         <motion.div className=" w-[1080px] max-w-full mx-auto flex flex-col items-start py-16 px-2">
-          <h2 className="text-4xl font-medium my-4">Payment </h2>
+          <h2 className="text-4xl  my-4">Payment </h2>
           <p className="text-body text-base font-light tracking-wider text-gray-300 ml-4">
             Ylem accepts payment via ApplePay, Paypal, Credit card and Klarna
             <br />

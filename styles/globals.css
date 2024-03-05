@@ -84,3 +84,37 @@ body {
 .css-1twr7re-JoyAccordionSummary-button:not(.Mui-selected, [aria-selected="true"]):hover {
   background-color: transparent !important;
 }
+
+.term-bg { 
+  background-image: url('/terms.jpg');
+  background-size: contain; 
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.privacy-bg { 
+  background-image: url('/page_covers/privacy.jpg');
+  background-size: contain; 
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.contact-bg { 
+  background-image: url('/contact.jpg');
+  background-size: contain; 
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.faq-bg { 
+  background-image: url('/faq.jpg');
+  background-size: contain; 
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+

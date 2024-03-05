@@ -20,15 +20,9 @@ export default function Privacy() {
         {/* Image  */}
         <div className="w-screen h-96 max-h-[40vh] relative">
           <div className="w-screen h-full absolute top-0 left-0 flex flex-col items-center justify-center">
-            <p className=" text-5xl font-thin z-10">Privacy policy</p>
+            <p className=" text-5xl font-thin z-10 uppercase">Privacy policy</p>
           </div>
-          <Image
-            src="/page_covers/privacy.jpg"
-            layout="fill"
-            objectFit="cover"
-            alt="Privacy policy"
-            className="opacity-50"
-          />
+          <div className="w-screen h-96 privacy-bg opacity-50" />
         </div>
         {/* Content  */}
         <motion.div className=" w-[1080px] max-w-full mx-auto flex flex-col items-start py-16 px-2">

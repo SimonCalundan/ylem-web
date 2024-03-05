@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useCartInfo } from "@/pages/_app";
 
 const container = {
   hidden: { opacity: 1 },
@@ -30,10 +31,10 @@ const item = {
 };
 
 const menuItems = [
-  { name: "Home", link: "/" },
-  { name: "Entangle ring", link: "/products/entangle" },
-  { name: "YLEM Universe", link: "/universe" },
-  { name: "Cart", link: "/cart" },
+  { name: "Home", link: "/", hasAction: false },
+  { name: "Entangle ring", link: "/products/entangle", hasAction: false },
+  { name: "YLEM Universe", link: "/universe", hasAction: false },
+  { name: "Cart", link: "/cart", hasAction: true },
 ];
 
 const secondaryMenuItems = [
@@ -44,6 +45,7 @@ const secondaryMenuItems = [
 ];
 
 const Menu = ({ menuOpen }) => {
+  const { showCart, toggleCart } = useCartInfo();
   return (
     <AnimatePresence
       onExitComplete={() => {
@@ -73,7 +75,8 @@ const Menu = ({ menuOpen }) => {
             >
               <Link
                 className="text-white link text-2xl uppercase font-light hover:scale-105"
-                href={link.link}
+                href={link.hasAction === true ? "" : link.link}
+                onClick={link.hasAction === true ? toggleCart : null}
               >
                 {link.name}
                 <span className="line"></span>

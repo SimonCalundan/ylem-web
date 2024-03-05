@@ -68,6 +68,22 @@ const RingContent = () => {
   // Handle size select 
   const [selectedSize, setSelectedSize] = useState(0);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
+
+
+  function getApiPriceFromSize(size){ 
+    switch (size) { 
+      case 6: 
+        return 590;
+      case 7:
+        return 590;
+      case 8:
+        return 590;
+      case 9:
+        return 590;
+      default:
+        return 590;
+    }
+  } 
   return (
     <>
       <Head>

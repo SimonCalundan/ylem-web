@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="flex flex-col gap-2 w-full md:w-1/3 px-4 text-left md:text-right h-full justify-start">
         <p className="uppercase font-medium text-2xl">Ylem Universe</p>
         <div className=" text-gray-400 uppercase flex flex-col gap-2">
-          <Link className="hover:underline text-body flex justify-start md:justify-end" href="/products/entangle">
+          <Link className="hover:underline text-body flex justify-start md:justify-end" target="_blank" href="https://www.instagram.com/ylemjewelry/">
             Instagram
           </Link>
         </div>
