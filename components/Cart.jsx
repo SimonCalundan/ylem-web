@@ -1,8 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useCartInfo } from "@/pages/_app";
 import Image from "next/image";
 import { useRef } from "react";
-import  useClickAway  from "@/hooks/useClickAway";
+import useClickAway from "@/hooks/useClickAway";
+import { useRouter } from "next/router";
+import { useCartInfo } from "@/pages/_app";
+
+const stripe = require('stripe')('sk_test_51OSjEUKX6pnZaDZwTy89LaibMTcegRlfmksnUPGM9ce9jSfwBUgU0R0gbp9bQEuaCYPLuxKx7st7EsM3w601swv2004rZnqhjY');
+
+// Create a Checkout Session 
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,6 +28,64 @@ const item = {
   }
 };
 
+const countryCodes = [
+    "AL", // Albania
+    "AD", // Andorra
+    "AM", // Armenia
+    "AT", // Austria
+    "AZ", // Azerbaijan
+    "BY", // Belarus
+    "BE", // Belgium
+    "BA", // Bosnia and Herzegovina
+    "BG", // Bulgaria
+    "HR", // Croatia
+    "CY", // Cyprus
+    "CZ", // Czech Republic
+    "DK", // Denmark
+    "EE", // Estonia
+    "FO", // Faroe Islands
+    "FI", // Finland
+    "FR", // France
+    "GE", // Georgia
+    "DE", // Germany
+    "GI", // Gibraltar
+    "GR", // Greece
+    "GL", // Greenland
+    "HU", // Hungary
+    "IS", // Iceland
+    "IE", // Ireland
+    "IT", // Italy
+    "XK", // Kosovo
+    "LV", // Latvia
+    "LI", // Liechtenstein
+    "LT", // Lithuania
+    "LU", // Luxembourg
+    "MT", // Malta
+    "MD", // Moldova
+    "MC", // Monaco
+    "ME", // Montenegro
+    "NL", // Netherlands
+    "MK", // North Macedonia (formerly known as Macedonia)
+    "NO", // Norway
+    "PL", // Poland
+    "PT", // Portugal
+    "RO", // Romania
+    "RU", // Russia
+    "SM", // San Marino
+    "RS", // Serbia
+    "SK", // Slovakia
+    "SI", // Slovenia
+    "ES", // Spain
+    "SJ", // Svalbard and Jan Mayen
+    "SE", // Sweden
+    "CH", // Switzerland
+    "TR", // Turkey
+    "UA", // Ukraine
+    "GB", // United Kingdom
+    "VA"  // Vatican City
+]
+
+
 const mockCart = [
   {
     id: 1,
@@ -40,9 +103,39 @@ const mockCart = [
   },
 ];
 export default function Cart() {
-  const { showCart, toggleCart } = useCartInfo();
   const wrapperRef = useRef(null);
   useClickAway(wrapperRef, () => toggleCart());
+
+  const router = useRouter();
+  async function createCheckoutSession(items) {
+    const line_items = items.map((item => {
+      return {
+        price: item.price,
+        quantity: item.quantity,
+      }
+    }));
+    try {
+      const session = await stripe.checkout.sessions.create({
+        success_url: 'https://ylemjewelry.com/',
+        line_items: line_items,
+        mode: 'payment',
+        shipping_address_collection: {
+          allowed_countries: countryCodes 
+        }
+      });
+      router.push(session.url);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const { cart, removeItem, showCart, toggleCart, setQuantity } = useCartInfo();
+  const handleCompleteRemove = (price) => {
+    removeItem(price, true);
+  }
+  const handleQuantityChange = (price, quantity) => {
+    setQuantity(price, quantity);
+  };
   return (
     <AnimatePresence>
       {showCart && (
@@ -69,14 +162,15 @@ export default function Cart() {
             <div className="h-[0.2px] opacity-50 w-4/5 mx-auto bg-white" />
             {/** Cart items */}
             <motion.div variants={container} className="flex flex-col gap-2 w-full py-4 px-8">
-              {true ? (mockCart.map((item) => (
+              {cart.length > 0 ? (cart?.map((item, i) => (
                 <motion.div
+                  key={i}
                   initial="hidden"
                   animate="visible"
-                  variants={item} key={item.id} className="flex w-full items-start justify-between text-body">
+                  variants={item} className="flex w-full items-start justify-between text-body">
                   <div className="w-1/3 h-20">
                     <Image
-                      src={item.img_path}
+                      src={item.image}
                       width={70}
                       height={70}
                       alt="product"
@@ -84,18 +178,21 @@ export default function Cart() {
                     />
                   </div>
                   <div className="flex flex-col w-1/3 pt-1">
-                    <h3 className="text-white text-xl whitespace-nowrap">{item.name}</h3>
-                    <p className="text-white text-lg opacity-70">{item.price} DKK</p>
+                    <h3 className="text-white text-lg whitespace-nowrap">{item.name} | Size {item.size}</h3>
+                    <p className="text-white text-lg opacity-70">{item.amount} DKK</p>
                   </div>
                   <div className="flex flex-col items-end justify-between h-full pb-4 pt-1 w-1/3">
-                    <button className="text-gray-400 text-sm underline">Remove</button>
-                    <input type="number" className=" w-12 text-body h-8 flex justify-center items-center bg-gray-700 text-white pl-2" placeholder={item.quantity} />
+                    <button onClick={(e) => {
+                      e.preventDefault();
+                      handleCompleteRemove(item.price);
+                    }} className="text-gray-400 text-sm underline">Remove</button>
+                    <input onChange={(e) => handleQuantityChange(item.price, e.target.value)} type="number" className=" w-12 text-body h-8 flex justify-center items-center bg-gray-700 text-white pl-2" placeholder={item.quantity} />
                   </div>
                 </motion.div>
               ))) : <p className="text-white mx-auto text-xl">No items in cart</p>}
             </motion.div>
-            {true && ( 
-              <button className="bg-white text-dark-blue bottom-32 py-3 px-6 text-xl absolute hover:scale-105 transition-all duration-300">Checkout</button>
+            {cart?.length > 0 && (
+              <button onClick={() => createCheckoutSession(cart)} className="bg-white text-dark-blue bottom-32 py-3 px-6 text-xl absolute hover:scale-105 transition-all duration-300">Checkout</button>
             )}
           </motion.div>
         </motion.div>

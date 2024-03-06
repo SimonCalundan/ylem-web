@@ -117,4 +117,25 @@ body {
   background-attachment: fixed;
 }
 
+@media (max-width: 768px) {
+  .term-bg { 
+    background-size: cover; 
+    background-position: center;
+  }
+
+  .privacy-bg { 
+    background-size: cover; 
+    background-position: center;
+  }
+
+  .contact-bg { 
+    background-size: cover; 
+    background-position: center;
+  }
+
+  .faq-bg { 
+    background-size: cover; 
+    background-position: center;
+  }
+}
 

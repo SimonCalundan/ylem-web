@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Accordion from "@/components/products/Accordion";
 import Footer from "@/components/Footer";
+import { useCartInfo } from "../_app";
 
 const sizes = [
   {
@@ -70,20 +71,42 @@ const RingContent = () => {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
 
 
-  function getApiPriceFromSize(size){ 
-    switch (size) { 
-      case 6: 
-        return 590;
+
+  function getApiPriceFromSize(size) {
+    console.log("this ran");
+    switch (size) {
+      case 6:
+        console.log("6");
+        return "price_1OrRJPKX6pnZaDZwHQhUTrBC";
       case 7:
-        return 590;
+        console.log("7");
+        return "price_1OrRJhKX6pnZaDZwAg1FLwEi";
       case 8:
-        return 590;
+        console.log("8");
+        return "price_1OrRJwKX6pnZaDZwdvcgIkg6";
       case 9:
-        return 590;
+        console.log("9");
+        return "price_1OrRKTKX6pnZaDZwR6Ua4Rzp";
       default:
-        return 590;
+        return "";
     }
-  } 
+  }
+
+  const [objectForCart, setObjectForCart] = useState({
+    name: "Entangle",
+    price: "",
+    amount: 590,
+    image: "/nye_billeder/ring_close.jpg",
+    quantity: 1,
+  }
+  );
+  const { addItem, cart } = useCartInfo();
+
+  function handleClick() {
+    addItem(objectForCart);
+  }
+  useEffect(() => console.log(cart), [cart]);
+
   return (
     <>
       <Head>
@@ -127,23 +150,27 @@ const RingContent = () => {
           <svg onClick={previous} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer top-2/5 left-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 20l-3 -8l3 -8" /></svg>
           <Slider
             ref={sliderRef} dotsClass="bg-blue-500" {...settings} className=" h-full w-screen mt-24 overflow-hidden  text-white ">
-            <Image priority={true} src="/produkt_billeder/ring_3.jpg"
+            <Image priority={true} src="/nye_billeder/ring_1.jpg"
               width={500}
               height={500}
               alt=" ring" />
-            <Image priority={true} src="/produkt_billeder/ring_7.jpg"
+            <Image priority={true} src="/nye_billeder/ring_2.jpg"
               width={500}
               height={500}
               alt=" ring" />
-            <Image priority={true} src="/produkt_billeder/ring_2.jpg"
+            <Image priority={true} src="/nye_billeder/ring_3.jpg"
               width={500}
               height={500}
               alt=" ring" />
-            <Image priority={true} src="/produkt_billeder/ring_4.jpg"
+            <Image priority={true} src="/nye_billeder/ring_4.jpg"
               width={500}
               height={500}
               alt=" ring" />
-            <Image priority={true} src="/produkt_billeder/ring_5.jpg"
+            <Image priority={true} src="/nye_billeder/ring_5.jpg"
+              width={500}
+              height={500}
+              alt=" ring" />
+            <Image priority={true} src="/nye_billeder/ring_6.jpg"
               width={500}
               height={500}
               alt=" ring" />
@@ -170,11 +197,19 @@ const RingContent = () => {
             { /* Size buttons */}
             <div className="flex w-full">
               {sizes.map((size, i) => (
-                <button onClick={() => setSelectedSize(size.size)} disabled={size.soldOut} className={`text-body ${selectedSize === size.size ? "bg-white text-dark-blue" : ""} disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white`} key={i}>{size.size}</button>
+                <button onClick={() => {
+                  setSelectedSize(size.size);
+                  setObjectForCart({
+                    ...objectForCart,
+                    price: getApiPriceFromSize(size.size),
+                    size: size.size
+                  });
+                }
+                } disabled={size.soldOut} className={`text-body ${selectedSize === size.size ? "bg-white text-dark-blue" : ""} disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white`} key={i}>{size.size}</button>
               ))}
             </div>
             { /* Purchase button */}
-            <button className="w-full h-12 mt-8 flex justify-center items-center bg-white text-dark-blue hover:text-white hover:bg-dark-blue transition-all border border-white text-body">Add to cart</button>
+            <button disabled={selectedSize === 0} onClick={handleClick} className=" disabled:pointer-events-none disabled:opacity-50 w-full h-12 mt-8 flex justify-center items-center bg-white text-dark-blue hover:text-white hover:bg-dark-blue transition-all border border-white text-body">Add to cart</button>
           </div>
         </div>
       </motion.div>

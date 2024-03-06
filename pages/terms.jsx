@@ -20,7 +20,7 @@ export default function Terms() {
         {/* Image  */}
         <div className="w-screen h-96 max-h-[40vh] relative">
           <div className="w-screen h-full absolute top-0 left-0 flex flex-col items-center justify-center">
-            <p className=" text-5xl font-thin z-10 uppercase">Terms and conditions</p>
+            <p className=" text-5xl font-thin z-10 uppercase text-center">Terms and conditions</p>
           </div>
           <div className="w-screen h-96 term-bg opacity-50" />
         </div>

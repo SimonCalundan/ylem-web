@@ -44,7 +44,7 @@ export default function Home() {
               delay: 2,
               duration: 0.5,
             }}
-            src="/model_billeder/front_1.jpg"
+            src="/nye_billeder/hero_image.jpg"
             width={600}
             height={600}
             alt="Oliver"
