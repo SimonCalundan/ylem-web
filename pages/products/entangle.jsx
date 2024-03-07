@@ -151,28 +151,28 @@ const RingContent = () => {
           <Slider
             ref={sliderRef} dotsClass="bg-blue-500" {...settings} className=" h-full w-screen mt-24 overflow-hidden  text-white ">
             <Image priority={true} src="/nye_billeder/ring_1.jpg"
-              width={800}
-              height={800}
+              width={1200}
+              height={1200}
               alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_2.jpg"
-              width={800}
-              height={800}
+              width={1200}
+              height={1200}
               alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_3.jpg"
-              width={800}
-              height={800}
+              width={1200}
+              height={1200}
               alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_4.jpg"
-              width={800}
-              height={800}
+              width={1200}
+              height={1200}
               alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_5.jpg"
-              width={800}
-              height={800}
+              width={1200}
+              height={1200}
               alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_6.jpg"
-              width={800}
-              height={800}
+              width={1200}
+              height={1200}
               alt=" ring" />
           </Slider>
         </div>
