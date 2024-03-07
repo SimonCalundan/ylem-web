@@ -5,9 +5,7 @@ import useClickAway from "@/hooks/useClickAway";
 import { useRouter } from "next/router";
 import { useCartInfo } from "@/pages/_app";
 
-const stripe = require('stripe')('pk_live_51OSjEUKX6pnZaDZwG8DD32EjtFVS5IinOiB4LMzRo6TQD4dTkQ7F61L7FKoDCTKGj5Ht7sSymt5qAzYxSgbe4FNv00oRGNq4Mi');
 
-// Create a Checkout Session 
 
 const container = {
   hidden: { opacity: 0 },
@@ -20,114 +18,30 @@ const container = {
   }
 };
 
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1
-  }
-};
-
-const countryCodes = [
-    "AL", // Albania
-    "AD", // Andorra
-    "AM", // Armenia
-    "AT", // Austria
-    "AZ", // Azerbaijan
-    "BY", // Belarus
-    "BE", // Belgium
-    "BA", // Bosnia and Herzegovina
-    "BG", // Bulgaria
-    "HR", // Croatia
-    "CY", // Cyprus
-    "CZ", // Czech Republic
-    "DK", // Denmark
-    "EE", // Estonia
-    "FO", // Faroe Islands
-    "FI", // Finland
-    "FR", // France
-    "GE", // Georgia
-    "DE", // Germany
-    "GI", // Gibraltar
-    "GR", // Greece
-    "GL", // Greenland
-    "HU", // Hungary
-    "IS", // Iceland
-    "IE", // Ireland
-    "IT", // Italy
-    "XK", // Kosovo
-    "LV", // Latvia
-    "LI", // Liechtenstein
-    "LT", // Lithuania
-    "LU", // Luxembourg
-    "MT", // Malta
-    "MD", // Moldova
-    "MC", // Monaco
-    "ME", // Montenegro
-    "NL", // Netherlands
-    "MK", // North Macedonia (formerly known as Macedonia)
-    "NO", // Norway
-    "PL", // Poland
-    "PT", // Portugal
-    "RO", // Romania
-    "RU", // Russia
-    "SM", // San Marino
-    "RS", // Serbia
-    "SK", // Slovakia
-    "SI", // Slovenia
-    "ES", // Spain
-    "SJ", // Svalbard and Jan Mayen
-    "SE", // Sweden
-    "CH", // Switzerland
-    "TR", // Turkey
-    "UA", // Ukraine
-    "GB", // United Kingdom
-    "VA"  // Vatican City
-]
-
-
-const mockCart = [
-  {
-    id: 1,
-    name: "Entangle ring",
-    price: 520,
-    quantity: 1,
-    img_path: "/produkt_billeder/ring_3.jpg"
-  },
-  {
-    id: 1,
-    name: "Entangle ring",
-    price: 520,
-    quantity: 1,
-    img_path: "/produkt_billeder/ring_3.jpg"
-  },
-];
 export default function Cart() {
   const wrapperRef = useRef(null);
   useClickAway(wrapperRef, () => toggleCart());
 
   const router = useRouter();
+
   async function createCheckoutSession(items) {
-    const line_items = items.map((item => {
-      return {
-        price: item.price,
-        quantity: item.quantity,
-      }
-    }));
-    try {
-      const session = await stripe.checkout.sessions.create({
-        success_url: 'https://ylemjewelry.com/',
-        line_items: line_items,
-        mode: 'payment',
-        shipping_address_collection: {
-          allowed_countries: countryCodes 
-        }
-      });
-      router.push(session.url);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    const response = await fetch('/api/createSession', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ items }), // Pass the items in the request body
+    });
+
+    const { url } = await response.json();
+
+    // Redirect the user to the Stripe Checkout page
+    router.push(url);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   const { cart, removeItem, showCart, toggleCart, setQuantity } = useCartInfo();
   const handleCompleteRemove = (price) => {
