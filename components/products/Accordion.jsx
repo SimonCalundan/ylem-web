@@ -9,7 +9,7 @@ export default function Accordion() {
     },
     {
       title: "Order cancellation",
-      content: "Yes. If your order is yet to be shipped, you can cancel the order and we will refund the whole amount. If your order has already been shipped, you cannot cancel it, and will have to process a return instead."
+      content: "If your order is yet to be shipped, you can cancel the order and we will refund the whole amount. If your order has already been shipped, you cannot cancel it, and will have to process a return instead."
     },
     {
       title: "Return policy",
