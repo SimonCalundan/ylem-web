@@ -83,6 +83,8 @@ const RingContent = () => {
         return "price_1OrRBcKX6pnZaDZwrqlNf7oB";
       case 9:
         return "price_1OrRC9KX6pnZaDZwaiOYctvX";
+      case "test": 
+        return "price_1OrRKTKX6pnZaDZwR6Ua4Rzp"
       default:
         return "";
     }
@@ -198,7 +200,8 @@ const RingContent = () => {
                   setObjectForCart({
                     ...objectForCart,
                     price: getApiPriceFromSize(size.size),
-                    size: size.size
+                    // price: getApiPriceFromSize("test"),
+                    size: size.size,
                   });
                 }
                 } disabled={size.soldOut} className={`text-body ${selectedSize === size.size ? "bg-white text-dark-blue" : ""} disabled:opacity-30 w-1/5 h-12 hover:bg-white hover:text-dark-blue transition-all text-sm flex justify-center items-center border border-white`} key={i}>{size.size}</button>
