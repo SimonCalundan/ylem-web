@@ -59,6 +59,20 @@ body {
 }
 
 
+
+.animate-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -85,57 +99,57 @@ body {
   background-color: transparent !important;
 }
 
-.term-bg { 
+.term-bg {
   background-image: url('/terms.jpg');
-  background-size: contain; 
-  background-position: top;
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+.privacy-bg {
+  background-image: url('/PRIVACY.jpg');
+  background-size: 100%;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-.privacy-bg { 
-  background-image: url('/page_covers/privacy.jpg');
-  background-size: contain; 
-  background-position: top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.contact-bg { 
+.contact-bg {
   background-image: url('/contact.jpg');
-  background-size: contain; 
-  background-position: top;
+  background-size: 100%;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-.faq-bg { 
+.faq-bg {
   background-image: url('/faq.jpg');
-  background-size: contain; 
-  background-position: top;
+  background-size: 100%;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 @media (max-width: 768px) {
-  .term-bg { 
-    background-size: cover; 
-    background-position: center;
+  .term-bg {
+    background-position: top;
+    background-size: 200%;
   }
 
-  .privacy-bg { 
-    background-size: cover; 
-    background-position: center;
+  .privacy-bg {
+    background-position: top;
+    background-size: 200%;
   }
 
-  .contact-bg { 
-    background-size: cover; 
-    background-position: center;
+  .contact-bg {
+    background-position: top;
+    background-size: 200%;
   }
 
-  .faq-bg { 
-    background-size: cover; 
-    background-position: center;
+  .faq-bg {
+    background-position: top;
+    background-size: 200%;
   }
 }
-

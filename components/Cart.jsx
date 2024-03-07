@@ -5,7 +5,7 @@ import useClickAway from "@/hooks/useClickAway";
 import { useRouter } from "next/router";
 import { useCartInfo } from "@/pages/_app";
 
-const stripe = require('stripe')('sk_test_51OSjEUKX6pnZaDZwTy89LaibMTcegRlfmksnUPGM9ce9jSfwBUgU0R0gbp9bQEuaCYPLuxKx7st7EsM3w601swv2004rZnqhjY');
+const stripe = require('stripe')('pk_live_51OSjEUKX6pnZaDZwG8DD32EjtFVS5IinOiB4LMzRo6TQD4dTkQ7F61L7FKoDCTKGj5Ht7sSymt5qAzYxSgbe4FNv00oRGNq4Mi');
 
 // Create a Checkout Session 
 

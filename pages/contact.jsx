@@ -10,11 +10,11 @@ export default function Terms() {
 
   async function sendEmail() {
     try {
-      const response = await axios.post('https://api.emailjs.com/api/v1.0/email/send', { 
-        service_id: 'service_etp0ci7', 
-        template_id: 'template_sllt8wf', 
-        user_id: 'oxFjUr_HRGzGJaBVl', 
-        template_params: { 
+      const response = await axios.post('https://api.emailjs.com/api/v1.0/email/send', {
+        service_id: 'service_etp0ci7',
+        template_id: 'template_sllt8wf',
+        user_id: 'oxFjUr_HRGzGJaBVl',
+        template_params: {
           from_name: formData.from_name,
           from_mail: formData.from_mail,
           from_phone: formData.from_phone,
@@ -23,7 +23,7 @@ export default function Terms() {
       });
       console.log(response)
     } catch (error) {
-     console.log(error) 
+      console.log(error)
     }
   }
 
@@ -41,14 +41,21 @@ export default function Terms() {
       <motion.div className=" text-white w-screen h-auto flex flex-col pt-24">
         {/* Image  */}
         <div className="w-screen h-96 max-h-[40vh] relative">
-          <div className="w-screen h-full absolute top-0 left-0 flex flex-col items-center justify-center">
-            <p className=" text-5xl font-thin z-10">Contact</p>
+          <div className="w-screen contact-bg bg-opacity-50 h-full absolute top-0 left-0 flex flex-col items-center justify-center">
+            <p className=" text-5xl font-thin z-10 uppercase">Contact</p>
+            <div className="w-screen absolute -bottom-12 flex justify-center">
+              <Image
+                src="/logo_sm_2.png"
+                className="animate-in w-28 h-28"
+                width={400}
+                height={400}
+                alt="Logo"
+              />
+            </div>
           </div>
-          <div className="w-screen h-96 contact-bg opacity-50" />
         </div>
         {/* Content  */}
         <motion.div className=" w-[1080px] max-w-full mx-auto flex flex-col items-center py-16 px-2">
-
           <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 w-[41rem] max-w-full px-4 md:px-0">
             <p className="text-2xl ">Contact us</p>
             <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between">

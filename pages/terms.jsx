@@ -19,10 +19,18 @@ export default function Terms() {
       <motion.div className=" text-white w-screen h-auto flex flex-col pt-24">
         {/* Image  */}
         <div className="w-screen h-96 max-h-[40vh] relative">
-          <div className="w-screen h-full absolute top-0 left-0 flex flex-col items-center justify-center">
+          <div className="w-screen  term-bg bg-opacity-50  h-full absolute top-0 left-0 flex flex-col items-center justify-center">
             <p className=" text-5xl font-thin z-10 uppercase text-center">Terms and conditions</p>
+            <div className="w-screen absolute -bottom-12 flex justify-center">
+              <Image
+                src="/logo_sm_2.png"
+                className="animate-in w-28 h-28"
+                width={400}
+                height={400}
+                alt="Logo"
+              />
+            </div>
           </div>
-          <div className="w-screen h-96 term-bg opacity-50" />
         </div>
         {/* Content  */}
         <motion.div className=" w-[1080px] max-w-full mx-auto flex flex-col items-start py-16 px-2">

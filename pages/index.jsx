@@ -34,7 +34,7 @@ export default function Home() {
           <div
             className="absolute w-full h-full top-0 left-0 bg-dark-blue bg-opacity-20 md:bg-opacity-50 z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 
                         transition-all duration-300 flex justify-center items-center">
-            <button onClick={() => router.push("/products/entangle")} className="bg-white py-4 px-16 uppercase text-dark-blue hover:scale-[1.02] transition-all duration-300">Shop entangle ring</button>
+            <button onClick={() => router.push("/products/entangle")} className="bg-white py-4 px-16 uppercase text-dark-blue hover:scale-[1.02] transition-all duration-300 rounded-sm translate-y-32 md:translate-y-0">Shop entangle ring</button>
           </div>
           <motion.img
             initial={{ scale: 1.2 }}

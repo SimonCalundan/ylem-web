@@ -76,17 +76,13 @@ const RingContent = () => {
     console.log("this ran");
     switch (size) {
       case 6:
-        console.log("6");
-        return "price_1OrRJPKX6pnZaDZwHQhUTrBC";
+        return "price_1OrR9hKX6pnZaDZw4ky1r9rs";
       case 7:
-        console.log("7");
-        return "price_1OrRJhKX6pnZaDZwAg1FLwEi";
+        return "price_1OrRAzKX6pnZaDZwe9G5FiYm";
       case 8:
-        console.log("8");
-        return "price_1OrRJwKX6pnZaDZwdvcgIkg6";
+        return "price_1OrRBcKX6pnZaDZwrqlNf7oB";
       case 9:
-        console.log("9");
-        return "price_1OrRKTKX6pnZaDZwR6Ua4Rzp";
+        return "price_1OrRC9KX6pnZaDZwaiOYctvX";
       default:
         return "";
     }
@@ -100,10 +96,11 @@ const RingContent = () => {
     quantity: 1,
   }
   );
-  const { addItem, cart } = useCartInfo();
+  const { addItem, cart, toggleCart } = useCartInfo();
 
   function handleClick() {
     addItem(objectForCart);
+    toggleCart();
   }
   useEffect(() => console.log(cart), [cart]);
 
@@ -127,15 +124,14 @@ const RingContent = () => {
             className="fixed top-4 left-0 w-screen h-screen bg-black bg-opacity-50 z-50 flex justify-center items-center"
             onClick={() => setShowSizeGuide(false)}
           >
-            <div className="relative bg-white h-3/4 w-full md:w-2/5 md:h-4/5 flex flex-col justify-center items-center p-8 gap-8">
+            <div className="relative bg-dark-blue bg-opacity-50 h-3/4  w-full md:w-3/5 md:h-5/6 flex flex-col justify-center items-center p-8 gap-8">
               <button onClick={() => setShowSizeGuide(false)} className="absolute top-8 right-8">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 hover:scale-105 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 hover:scale-105 transition-all text-white">
                   <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                 </svg>
               </button>
-              <p className="text-3xl font-medium">Size guide</p>
-              <div className="w-full h-4/5 flex justify-center items-center" >
-                <Image src="/sizes.png" width={500} height={500} className="h-full w-auto" objectFit="contain" alt="Size guide" />
+              <div className="w-full h-full flex justify-center items-center" >
+                <Image src="/sizes2.png" width={800} height={800} className="h-auto w-full md:w-3/5" objectFit="contain" alt="Size guide" />
               </div>
             </div>
           </motion.div>
@@ -146,14 +142,10 @@ const RingContent = () => {
         className="w-screen h-auto  flex flex-col  text-white">
         {/*Images and CTA */}
         <div className="flex relative w-screen min-h-[50vh]  justify-center items-center  ">
-          <svg onClick={next} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer  top-2/5 right-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 4l3 8l-3 8" /></svg>
-          <svg onClick={previous} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer top-2/5 left-0" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 20l-3 -8l3 -8" /></svg>
+          <svg onClick={next} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer  top-2/5 -right-4" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 4l3 8l-3 8" /></svg>
+          <svg onClick={previous} xmlns="http://www.w3.org/2000/svg" className="absolute z-30 w-28 h-80 hover:scale-105 active:scale-95 transition-all cursor-pointer top-2/5 -left-4" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 20l-3 -8l3 -8" /></svg>
           <Slider
             ref={sliderRef} dotsClass="bg-blue-500" {...settings} className=" h-full w-screen mt-24 overflow-hidden  text-white ">
-            <Image priority={true} src="/nye_billeder/ring_1.jpg"
-              width={1600}
-              height={1600}
-              alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_2.jpg"
               width={1600}
               height={1600}
@@ -166,11 +158,15 @@ const RingContent = () => {
               width={1600}
               height={1600}
               alt=" ring" />
+            <Image priority={true} src="/nye_billeder/ring_6.jpg"
+              width={1600}
+              height={1600}
+              alt=" ring" />
             <Image priority={true} src="/nye_billeder/ring_5.jpg"
               width={1600}
               height={1600}
               alt=" ring" />
-            <Image priority={true} src="/nye_billeder/ring_6.jpg"
+            <Image priority={true} src="/nye_billeder/ring_1.jpg"
               width={1600}
               height={1600}
               alt=" ring" />
@@ -192,7 +188,7 @@ const RingContent = () => {
             { /* Select size */}
             <div className="flex justify-between w-full mb-4 md:mb-1">
               <p className="font-medium text-body">Select size</p>
-              <button onClick={() => setShowSizeGuide(!showSizeGuide)} className=" underline underline-offset-4 text-body">Size guide</button>
+              <button onClick={() => setShowSizeGuide(!showSizeGuide)} className=" underline underline-offset-4 text-body text-lg">Size guide</button>
             </div>
             { /* Size buttons */}
             <div className="flex w-full">

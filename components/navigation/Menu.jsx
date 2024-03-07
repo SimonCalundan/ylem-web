@@ -33,7 +33,6 @@ const item = {
 const menuItems = [
   { name: "Home", link: "/", hasAction: false },
   { name: "Entangle ring", link: "/products/entangle", hasAction: false },
-  { name: "YLEM Universe", link: "/universe", hasAction: false },
   { name: "Cart", link: "/cart", hasAction: true },
 ];
 
