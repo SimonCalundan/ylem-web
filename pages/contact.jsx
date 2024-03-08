@@ -8,7 +8,9 @@ import axios from "axios";
 export default function Terms() {
   const [formData, setFormData] = useState({});
 
+  const [buttonMessage, setButtonMessage] = useState('Send')
   async function sendEmail() {
+    setButtonMessage('Sending...')
     try {
       const response = await axios.post('https://api.emailjs.com/api/v1.0/email/send', {
         service_id: 'service_etp0ci7',
@@ -21,9 +23,10 @@ export default function Terms() {
           message: formData.message
         }
       });
-      console.log(response)
+      setButtonMessage('Sent')
     } catch (error) {
       console.log(error)
+      setButtonMessage('Error')
     }
   }
 
@@ -82,7 +85,7 @@ export default function Terms() {
               ...formData,
               message: e.target.value
             })} placeholder="Your message" className=" px-4 py-2 w-full text-lg text-dark-blue resize-none h-32 bg-gray-100" type="text" />
-            <button onClick={() => sendEmail()} className="w-40 h-12 bg-white text-dark-blue text-lg">Send</button>
+            <button onClick={() => sendEmail()} className="md:w-40 mt-12 md:mt-0 w-full h-12 bg-white text-dark-blue text-lg">{buttonMessage}</button>
           </form>
         </motion.div>
       </motion.div>

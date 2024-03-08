@@ -126,14 +126,14 @@ const RingContent = () => {
             className="fixed top-4 left-0 w-screen h-screen bg-black bg-opacity-50 z-50 flex justify-center items-center"
             onClick={() => setShowSizeGuide(false)}
           >
-            <div className="relative bg-dark-blue bg-opacity-50 h-3/4  w-full md:w-3/5 md:h-5/6 flex flex-col justify-center items-center p-8 gap-8">
+            <div className="relative bg-dark-blue bg-opacity-50 translate-y-4 rounded-sm  md:translate-y-10 h-3/4  w-full md:w-3/5 md:h-5/6 flex flex-col justify-center items-center p-8 gap-8">
               <button onClick={() => setShowSizeGuide(false)} className="absolute top-8 right-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 hover:scale-105 transition-all text-white">
                   <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                 </svg>
               </button>
               <div className="w-full h-full flex justify-center items-center" >
-                <Image src="/sizes2.png" width={800} height={800} className="h-auto w-full md:w-3/5" objectFit="contain" alt="Size guide" />
+                <Image src="/sizes2.png" width={800} height={800} className="h-auto w-full md:w-3/5 rounded-sm" objectFit="contain" alt="Size guide" />
               </div>
             </div>
           </motion.div>
