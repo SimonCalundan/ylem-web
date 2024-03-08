@@ -20,7 +20,7 @@ export default function Success() {
             className=" w-1/4 h-auto"
           />
           <p className="text-4xl text-white text-center">Thank you for your purchase</p>
-          <p className="text-base max-w-xl text-center text-gray-300 text-body">You will receive an email confirmation shortly. <br /> Should you encounter any issues or have any questions regarding your order, please don't hesitate to get in touch with us at <a className="text-white underline" href="mailto@contact@ylemjewelry.com">contact@ylemjewelry.com</a>.</p>
+          <p className="text-base max-w-xl text-center text-gray-300 text-body">You will receive an email confirmation shortly. <br /> Should you encounter any issues or have any questions regarding your order, please don&apos;t hesitate to get in touch with us at <a className="text-white underline" href="mailto@contact@ylemjewelry.com">contact@ylemjewelry.com</a>.</p>
         </motion.div>
       </div>
       <Footer />
