@@ -78,6 +78,9 @@ export default async function handler(req, res) {
         cancel_url: 'https://ylemjewelry.com/products/entangle',
         line_items,
         mode: 'payment',
+        phone_number_collection: {
+          enabled: true,
+        },
         shipping_options: [
           {
             shipping_rate_data: {
