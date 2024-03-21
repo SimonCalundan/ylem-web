@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { create } from 'zustand'
 import { Cormorant } from "next/font/google";
+import Head from "next/head";
 
 const cormorant = Cormorant({ subsets: ['latin'] });
 import Cart from "@/components/Cart";
@@ -10,10 +11,21 @@ import Cart from "@/components/Cart";
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={cormorant.className}>
-      <Cart />
-      <Component {...pageProps} />
-    </main>
+    <>
+      <Head>
+        <title>Ylem Jewelry</title>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/logo/LOGO_browser.jpg"
+        ></link>
+        <meta name="description" content="Ylem Jewelry" />
+      </Head>
+      <main className={cormorant.className}>
+        <Cart />
+        <Component {...pageProps} />
+      </main>
+    </>
   );
 }
 
